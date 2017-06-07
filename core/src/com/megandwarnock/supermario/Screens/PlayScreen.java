@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.megandwarnock.supermario.Scenes.Hud;
 import com.megandwarnock.supermario.SuperMario;
 
 /**
@@ -20,12 +21,14 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     Texture texture;
     private Viewport gamePort;
+    private Hud hud;
 
     public PlayScreen(SuperMario game) {
         this.game = game;
         texture = new Texture("badlogic.jpg");
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(800, 480, gamecam);
+        gamePort = new FitViewport(SuperMario.V_WIDTH, SuperMario.V_HEIGHT, gamecam);
+        hud = new Hud(game.batch);
     }
 
     @Override
@@ -37,10 +40,9 @@ public class PlayScreen implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        game.batch.setProjectionMatrix(gamecam.combined);
-        game.batch.begin();
-        game.batch.draw(texture, 0, 0);
-        game.batch.end();
+
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw();
     }
 
     @Override

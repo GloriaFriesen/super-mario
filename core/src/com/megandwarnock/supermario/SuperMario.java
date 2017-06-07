@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megandwarnock.supermario.Screens.PlayScreen;
 
 public class SuperMario extends Game {
+	public static final int V_WIDTH = 400;
+	public static final int V_HEIGHT = 208;
 	public SpriteBatch batch;
 	
 	@Override
