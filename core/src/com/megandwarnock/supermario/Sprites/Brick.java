@@ -1,6 +1,7 @@
 package com.megandwarnock.supermario.Sprites;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -24,5 +25,6 @@ public class Brick extends InteractiveTileObject {
         setCategoryFilter(SuperMario.DESTROYED_BIT);
         getCell().setTile(null);
         Hud.addScore(200);
+        SuperMario.manager.get("audio/sounds/breakblock.wav", Sound.class).play();
     }
 }
