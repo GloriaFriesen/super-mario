@@ -77,7 +77,8 @@ public class PlayScreen implements Screen {
         music = SuperMario.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.play();
-        goomba = new Goomba(this, 1f, .32f);
+        goomba = new Goomba(this, 5.64f, .32f);
+
     }
 
     public TextureAtlas getAtlas() {
@@ -128,6 +129,7 @@ public class PlayScreen implements Screen {
         game.batch.begin();
         player.draw(game.batch);
         goomba.draw(game.batch);
+
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);

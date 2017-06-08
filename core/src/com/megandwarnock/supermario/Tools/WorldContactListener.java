@@ -1,5 +1,6 @@
 package com.megandwarnock.supermario.Tools;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
@@ -30,8 +31,18 @@ public class WorldContactListener implements ContactListener {
             case SuperMario.ENEMY_HEAD_BIT | SuperMario.MARIO_BIT:
                 if(fixA.getFilterData().categoryBits == SuperMario.ENEMY_HEAD_BIT)
                     ((Enemy)fixA.getUserData()).hitOnHead();
-                else if(fixB.getFilterData().categoryBits == SuperMario.ENEMY_HEAD_BIT)
+                else
                     ((Enemy)fixB.getUserData()).hitOnHead();
+                break;
+            case SuperMario.ENEMY_BIT | SuperMario.OBJECT_BIT:
+                if(fixA.getFilterData().categoryBits == SuperMario.ENEMY_BIT)
+                    ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                else
+                    ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
+            case SuperMario.MARIO_BIT | SuperMario.ENEMY_BIT:
+                Gdx.app.log("MARIO", "DIED");
+
         }
     }
 
