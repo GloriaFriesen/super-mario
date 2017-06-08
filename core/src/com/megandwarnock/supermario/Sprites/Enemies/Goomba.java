@@ -1,5 +1,6 @@
-package com.megandwarnock.supermario.Sprites;
+package com.megandwarnock.supermario.Sprites.Enemies;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Array;
 import com.megandwarnock.supermario.Screens.PlayScreen;
+import com.megandwarnock.supermario.Sprites.Enemies.Enemy;
 import com.megandwarnock.supermario.SuperMario;
 
 /**
@@ -93,5 +95,6 @@ public class Goomba extends Enemy {
     @Override
     public void hitOnHead() {
         setToDestroy = true;
+        SuperMario.manager.get("audio/sounds/stomp.wav", Sound.class).play();
     }
 }

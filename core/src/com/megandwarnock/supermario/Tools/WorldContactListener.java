@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
-import com.megandwarnock.supermario.Sprites.Enemy;
+import com.megandwarnock.supermario.Sprites.Enemies.Enemy;
 import com.megandwarnock.supermario.Sprites.InteractiveTileObject;
 import com.megandwarnock.supermario.SuperMario;
 
@@ -42,6 +42,11 @@ public class WorldContactListener implements ContactListener {
                 break;
             case SuperMario.MARIO_BIT | SuperMario.ENEMY_BIT:
                 Gdx.app.log("MARIO", "DIED");
+                break;
+            case SuperMario.ENEMY_BIT | SuperMario.ENEMY_BIT:
+                ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
 
         }
     }
