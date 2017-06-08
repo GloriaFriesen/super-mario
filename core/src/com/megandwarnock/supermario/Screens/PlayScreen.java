@@ -28,6 +28,7 @@ import com.megandwarnock.supermario.Scenes.Hud;
 import com.megandwarnock.supermario.Sprites.Mario;
 import com.megandwarnock.supermario.SuperMario;
 import com.megandwarnock.supermario.Tools.B2WorldCreator;
+import com.megandwarnock.supermario.Tools.WorldContactListener;
 
 
 public class PlayScreen implements Screen {
@@ -66,6 +67,8 @@ public class PlayScreen implements Screen {
         new B2WorldCreator(world, map);
 
         player = new Mario(world, this);
+
+        world.setContactListener(new WorldContactListener());
 
     }
 
