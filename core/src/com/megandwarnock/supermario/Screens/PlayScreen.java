@@ -77,7 +77,7 @@ public class PlayScreen implements Screen {
         music = SuperMario.manager.get("audio/music/mario_music.ogg", Music.class);
         music.setLooping(true);
         music.play();
-        goomba = new Goomba(this, .32f, .32f);
+        goomba = new Goomba(this, 1f, .32f);
     }
 
     public TextureAtlas getAtlas() {
