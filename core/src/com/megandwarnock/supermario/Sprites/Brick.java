@@ -9,12 +9,13 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.megandwarnock.supermario.Scenes.Hud;
+import com.megandwarnock.supermario.Screens.PlayScreen;
 import com.megandwarnock.supermario.SuperMario;
 
 
 public class Brick extends InteractiveTileObject {
-    public Brick(World world, TiledMap map, Rectangle bounds){
-        super(world, map, bounds);
+    public Brick(PlayScreen screen, Rectangle bounds){
+        super(screen, bounds);
         fixture.setUserData(this);
         setCategoryFilter(SuperMario.BRICK_BIT);
     }

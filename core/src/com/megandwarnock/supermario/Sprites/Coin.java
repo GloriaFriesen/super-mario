@@ -10,14 +10,15 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.megandwarnock.supermario.Scenes.Hud;
+import com.megandwarnock.supermario.Screens.PlayScreen;
 import com.megandwarnock.supermario.SuperMario;
 
 
 public class Coin extends InteractiveTileObject {
     private static TiledMapTileSet tileSet;
     private final int BLANK_COIN = 28;
-    public Coin(World world, TiledMap map, Rectangle bounds){
-        super(world, map, bounds);
+    public Coin(PlayScreen screen, Rectangle bounds){
+        super(screen, bounds);
         tileSet = map.getTileSets().getTileSet("tileset_gutter");
         fixture.setUserData(this);
         setCategoryFilter(SuperMario.COIN_BIT);
